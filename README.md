@@ -1,6 +1,6 @@
 # Arpit Jindal — Video, Design & Data
 
-Personal creative freelancer portfolio showcasing short-form video editing, visual graphic design, Excel systems, and data visualization.
+Personal creative freelancer portfolio showcasing short-form video editing, visual graphic design, Excel systems, and data visualization — with a built-in pricing system and organized freelance asset library.
 
 ### 🌐 Live Portfolio → [https://arpit-jindal-01.github.io/profolio/](https://arpit-jindal-01.github.io/profolio/)
 
@@ -70,6 +70,7 @@ A studio-style portfolio built around three core creative modes — **Video**, *
 - **Chaos to Clarity:** Visual transformation breakdown showing workflow logic.
 - **The Toolbox & Methodology:** Capability overview and human-guided AI acceleration workflow.
 - **Interactive Solution Finder:** Dynamic query selector ("What do you have?") recommending services & filtering projects.
+- **Pricing System:** Three clean service cards (Design, Excel & Data, Video) with expandable pricing modals, multi-service packages, and a custom quote CTA — all linking to the enquiry form.
 - **Contact & Enquiry System:** Direct contact cards and inline project enquiry form.
 
 ---
@@ -84,6 +85,61 @@ A studio-style portfolio built around three core creative modes — **Video**, *
 - **GitHub:** [https://github.com/Arpit-Jindal-01](https://github.com/Arpit-Jindal-01)
 
 *(Freelance platform profiles on Fiverr and Upwork will be integrated once profiles are live).*
+
+---
+
+## Portfolio Asset Library
+
+The `ARPiT_FREELANCE/` directory contains the organized master library for all freelance work. It is **independent from the website code** and is not deployed to the live portfolio.
+
+```text
+ARPiT_FREELANCE/
+│
+├── DESIGN/
+│   ├── Social Media/       — Instagram posts, stories, carousels
+│   ├── Posters/            — Event posters, promotional creatives
+│   ├── Presentations/      — Pitch decks, slide decks
+│   └── Other/              — Flyers, banners, misc design work
+│
+├── EXCEL/
+│   ├── Dashboards/         — Interactive Excel/Sheets dashboards
+│   ├── Data Cleaning/      — Data cleaning & ETL work
+│   ├── Trackers/           — CRM, inventory, sales trackers
+│   └── Reports/            — Business reports & performance docs
+│
+├── VIDEO/                  — Video editing projects
+│
+├── CLIENT-SAMPLES/         — Sanitized/public-safe sample deliverables
+│
+└── PROPOSALS/
+    └── RATE-CARD.md        — Internal rate card & pricing policy
+```
+
+Each project follows a standardized folder structure:
+
+```text
+PROJECT-NAME/
+├── Preview/       — Optimized image/video for web, Fiverr, Upwork, proposals
+├── Source/        — Original editable files (.psd, .ai, .fig, .xlsx, etc.)
+├── Final/         — Final deliverables
+└── Description.md — Project metadata
+```
+
+> **Privacy:** No confidential client files, personal data, private contracts, API keys or private communications are committed to this repository.
+
+---
+
+## Pricing System
+
+The portfolio includes a built-in pricing section (accessible via the `PRICING` nav link) that shows:
+
+- **Three clean service cards** — Design (from ₹500), Excel & Data (from ₹999), Video (from ₹700)
+- **Expandable pricing modals** — Full service price lists shown on demand, keeping the main page uncluttered
+- **Multi-service packages** — Design+Video, Design+Data, Complete Content (all linked to custom quote)
+- **Custom Quote CTA** — `GET CUSTOM QUOTE →` and `BUILD MY PACKAGE →` both lead to the enquiry form
+- **Pricing disclaimer** — *"Starting prices. Final quotes depend on project scope, complexity, timeline and deliverables."*
+
+The internal rate card including revision policy, rush fees, payment terms, and scope-change policy is in `ARPiT_FREELANCE/PROPOSALS/RATE-CARD.md`.
 
 ---
 
@@ -123,6 +179,13 @@ Then open `http://localhost:8080/index.html` in your browser.
 
 ```text
 profolio/
+├── ARPiT_FREELANCE/             — Organized freelance asset library (not deployed)
+│   ├── DESIGN/
+│   ├── EXCEL/
+│   ├── VIDEO/
+│   ├── CLIENT-SAMPLES/
+│   └── PROPOSALS/
+│       └── RATE-CARD.md
 ├── assets/
 │   ├── design_breakfast_poster.png
 │   ├── design_crispy_poster.png

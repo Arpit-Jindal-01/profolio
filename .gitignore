@@ -1,3 +1,23 @@
 .DS_Store
 .vercel
 node_modules
+
+# ===== ARPiT_FREELANCE Privacy & Size Protection =====
+# Large video source files — place only optimized previews
+ARPiT_FREELANCE/**/*.mp4
+ARPiT_FREELANCE/**/*.mov
+ARPiT_FREELANCE/**/*.avi
+ARPiT_FREELANCE/**/*.prproj
+ARPiT_FREELANCE/**/*.aep
+
+# Large editable source files — keep locally only
+ARPiT_FREELANCE/**/Source/*.psd
+ARPiT_FREELANCE/**/Source/*.ai
+ARPiT_FREELANCE/**/Source/*.fig
+
+# Confidential/private files — never commit
+ARPiT_FREELANCE/**/*.env
+ARPiT_FREELANCE/**/CONFIDENTIAL/
+ARPiT_FREELANCE/**/PRIVATE/
+*.env
+*.env.local

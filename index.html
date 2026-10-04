@@ -1670,6 +1670,309 @@
                 filter: none !important;
             }
         }
+
+        /* ===== PRICING SECTION ===== */
+        #pricing { padding-bottom: 60px; }
+
+        .pricing-intro {
+            max-width: 640px;
+            margin-top: 12px;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            margin-top: 48px;
+            border: 1px solid var(--b);
+            border-radius: var(--card-radius);
+            overflow: hidden;
+            background: var(--b);
+        }
+
+        @media(max-width: 900px) {
+            .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .prc {
+            background: var(--s);
+            padding: 36px 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            transition: background 0.3s;
+            position: relative;
+        }
+
+        .prc:hover {
+            background: var(--s2);
+        }
+
+        .prc-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            color: var(--t3);
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .prc-price {
+            font-size: clamp(28px, 3vw, 42px);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1;
+            color: var(--t);
+            margin-bottom: 6px;
+        }
+
+        .prc-from {
+            font-size: 11px;
+            color: var(--t3);
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .prc-services {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+        }
+
+        .prc-services li {
+            font-size: 13px;
+            color: var(--t2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .prc-services li::before {
+            content: '';
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: var(--ab);
+            flex-shrink: 0;
+        }
+
+        .prc-action {
+            margin-top: 28px;
+            padding-top: 24px;
+            border-top: 1px solid var(--b);
+        }
+
+        .prc-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            color: var(--ab);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            padding: 0;
+            text-transform: uppercase;
+            transition: gap 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s;
+        }
+
+        .prc-btn:hover {
+            gap: 14px;
+            color: var(--t);
+        }
+
+        /* Pricing Modal */
+        .pricing-modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: rgba(8, 8, 8, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .pricing-modal-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .pricing-modal {
+            background: var(--s);
+            border: 1px solid var(--b-light);
+            border-radius: 8px;
+            max-width: 680px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 40px;
+            transform: translateY(24px);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            scrollbar-width: thin;
+            scrollbar-color: var(--b) transparent;
+        }
+
+        .pricing-modal-overlay.open .pricing-modal {
+            transform: translateY(0);
+        }
+
+        .pricing-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 32px;
+        }
+
+        .pricing-modal-close {
+            background: none;
+            border: 1px solid var(--b);
+            color: var(--t2);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: grid;
+            place-items: center;
+            font-family: inherit;
+            transition: border-color 0.2s, color 0.2s;
+            flex-shrink: 0;
+        }
+
+        .pricing-modal-close:hover {
+            border-color: var(--ab);
+            color: var(--t);
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .pricing-table tr {
+            border-bottom: 1px solid var(--b);
+            transition: background 0.2s;
+        }
+
+        .pricing-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-table tr:hover {
+            background: var(--s2);
+        }
+
+        .pricing-table td {
+            padding: 12px 0;
+            font-size: 13px;
+        }
+
+        .pricing-table td:first-child {
+            color: var(--t2);
+            padding-right: 24px;
+        }
+
+        .pricing-table td:last-child {
+            color: var(--t);
+            font-weight: 600;
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .pricing-disclaimer {
+            margin-top: 24px;
+            padding: 16px 20px;
+            border: 1px solid var(--b);
+            border-radius: 4px;
+            background: rgba(139, 92, 246, 0.05);
+            font-size: 12px;
+            color: var(--t3);
+            line-height: 1.6;
+        }
+
+        /* Custom Package + Multi-service */
+        .pricing-custom {
+            margin-top: 48px;
+            padding: 40px;
+            border: 1px solid var(--b);
+            border-radius: var(--card-radius);
+            background: var(--s);
+        }
+
+        .pricing-packages {
+            margin-top: 48px;
+        }
+
+        .pkg-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 28px;
+        }
+
+        @media(max-width: 900px) {
+            .pkg-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pkg-card {
+            padding: 24px;
+            border: 1px solid var(--b);
+            border-radius: var(--card-radius);
+            background: var(--s);
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .pkg-card:hover {
+            border-color: rgba(167, 139, 250, 0.3);
+            background: var(--s2);
+        }
+
+        .pkg-name {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            color: var(--ab);
+            margin-bottom: 10px;
+        }
+
+        .pkg-desc {
+            font-size: 13px;
+            color: var(--t2);
+            line-height: 1.55;
+            margin-bottom: 18px;
+        }
+
+        .pkg-cta {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            color: var(--t3);
+            text-transform: uppercase;
+        }
+
+        .pricing-section-disclaimer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: var(--t3);
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -1694,6 +1997,7 @@
             <a class="nav-link" href="#modes">SERVICES</a>
             <a class="nav-link" href="#work">WORK</a>
             <a class="nav-link" href="#about">ABOUT</a>
+            <a class="nav-link" href="#pricing">PRICING</a>
             <a class="nav-link" href="#contact">CONTACT</a>
             <a class="btn p start-project-btn" href="#contact" style="padding: 10px 20px; font-size: 11px;">
                 START A PROJECT →
@@ -1996,6 +2300,226 @@
             <p class="dim" style="font-size: 14px;">Select an option above to see recommended solution & start your project.</p>
         </div>
     </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <p class="lbl rv">STARTING PRICES</p>
+        <h2 class="rv" style="margin-top: 10px;">What does it<br>cost?</h2>
+        <p class="dim rv pricing-intro" style="margin-top: 14px; font-size: 16px; line-height: 1.6;">
+            Clear starting prices across every service. Final quotes depend on scope, complexity and timeline.
+        </p>
+
+        <!-- Three Service Cards -->
+        <div class="pricing-cards rv">
+
+            <!-- DESIGN card -->
+            <div class="prc" role="group" aria-label="Design pricing">
+                <p class="prc-label">Design</p>
+                <p class="prc-price">&#8377;500<span style="font-size:0.5em; font-weight:500;">+</span></p>
+                <p class="prc-from">Starting at</p>
+                <ul class="prc-services">
+                    <li>Social Media &amp; Stories</li>
+                    <li>Presentations &amp; Pitch Decks</li>
+                    <li>Posters &amp; Event Creatives</li>
+                    <li>Brand Visuals &amp; Kits</li>
+                </ul>
+                <div class="prc-action">
+                    <button class="prc-btn" id="open-design-pricing" aria-haspopup="dialog" aria-controls="modal-design">
+                        VIEW PRICING <span class="ar">&rarr;</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- EXCEL & DATA card -->
+            <div class="prc" role="group" aria-label="Excel and data pricing">
+                <p class="prc-label">Excel &amp; Data</p>
+                <p class="prc-price">&#8377;999<span style="font-size:0.5em; font-weight:500;">+</span></p>
+                <p class="prc-from">Starting at</p>
+                <ul class="prc-services">
+                    <li>Dashboards &amp; Reports</li>
+                    <li>Data Cleaning &amp; ETL</li>
+                    <li>Trackers &amp; Automation</li>
+                    <li>Business Performance Reports</li>
+                </ul>
+                <div class="prc-action">
+                    <button class="prc-btn" id="open-excel-pricing" aria-haspopup="dialog" aria-controls="modal-excel">
+                        VIEW PRICING <span class="ar">&rarr;</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- VIDEO card -->
+            <div class="prc" role="group" aria-label="Video pricing">
+                <p class="prc-label">Video</p>
+                <p class="prc-price">&#8377;700<span style="font-size:0.5em; font-weight:500;">+</span></p>
+                <p class="prc-from">Starting at</p>
+                <ul class="prc-services">
+                    <li>Reels &amp; YouTube Shorts</li>
+                    <li>Event &amp; Promo Videos</li>
+                    <li>Motion Graphics</li>
+                    <li>Monthly Content Editing</li>
+                </ul>
+                <div class="prc-action">
+                    <button class="prc-btn" id="open-video-pricing" aria-haspopup="dialog" aria-controls="modal-video">
+                        VIEW PRICING <span class="ar">&rarr;</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <p class="pricing-section-disclaimer rv">
+            Starting prices. Final quotes depend on project scope, complexity, timeline and deliverables.
+        </p>
+
+        <!-- Multi-Service Packages -->
+        <div class="pricing-packages rv">
+            <p class="lbl">NEED MORE THAN ONE THING?</p>
+            <h3 style="margin-top: 10px; font-size: clamp(22px, 3vw, 36px);">Combine services<br>into a custom package.</h3>
+
+            <div class="pkg-grid">
+                <div class="pkg-card">
+                    <p class="pkg-name">DESIGN + VIDEO</p>
+                    <p class="pkg-desc">Social Creatives + Reels.<br>Consistent look across every platform.</p>
+                    <p class="pkg-cta">CUSTOM QUOTE</p>
+                </div>
+                <div class="pkg-card">
+                    <p class="pkg-name">DESIGN + DATA</p>
+                    <p class="pkg-desc">Social Creatives + Business Dashboard.<br>Visuals and numbers, both sorted.</p>
+                    <p class="pkg-cta">CUSTOM QUOTE</p>
+                </div>
+                <div class="pkg-card">
+                    <p class="pkg-name">COMPLETE CONTENT</p>
+                    <p class="pkg-desc">Design + Video + Data.<br>Everything your brand needs, end to end.</p>
+                    <p class="pkg-cta">CUSTOM QUOTE</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Project CTA -->
+        <div class="pricing-custom rv">
+            <p class="lbl">CUSTOM PROJECT</p>
+            <h3 style="margin-top: 10px; font-size: clamp(20px, 2.5vw, 32px); margin-bottom: 14px;">Need a larger or multi-service project?</h3>
+            <p class="dim" style="font-size: 15px; max-width: 560px; line-height: 1.65;">
+                Tell me what you're building and I'll create a custom package based on the scope, timeline and deliverables.
+            </p>
+            <div style="margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center;">
+                <a href="#contact" class="btn p" id="get-custom-quote-btn" style="padding: 14px 28px; font-size: 11px;">
+                    GET CUSTOM QUOTE <span class="ar">&rarr;</span>
+                </a>
+                <a href="#contact" class="btn" id="build-package-btn" style="padding: 14px 28px; font-size: 11px;">
+                    BUILD MY PACKAGE <span class="ar">&rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Pricing Modal -->
+    <div class="pricing-modal-overlay" id="modal-design" role="dialog" aria-modal="true" aria-label="Design pricing details">
+        <div class="pricing-modal">
+            <div class="pricing-modal-header">
+                <div>
+                    <p class="lbl">DESIGN</p>
+                    <h3 style="margin-top: 6px; font-size: clamp(22px, 3vw, 36px);">Design Pricing</h3>
+                </div>
+                <button class="pricing-modal-close" aria-label="Close pricing modal" data-close-modal="modal-design">&times;</button>
+            </div>
+            <table class="pricing-table" aria-label="Design service prices">
+                <tbody>
+                    <tr><td>Social Media Post</td><td>&#8377;500+</td></tr>
+                    <tr><td>Instagram Story</td><td>&#8377;400+</td></tr>
+                    <tr><td>Carousel (5 slides)</td><td>&#8377;1,500+</td></tr>
+                    <tr><td>Poster / Event Creative</td><td>&#8377;800+</td></tr>
+                    <tr><td>Flyer</td><td>&#8377;1,000+</td></tr>
+                    <tr><td>Brochure (2&ndash;4 pages)</td><td>&#8377;2,500+</td></tr>
+                    <tr><td>Presentation (10 slides)</td><td>&#8377;3,000+</td></tr>
+                    <tr><td>Pitch Deck</td><td>&#8377;4,000+</td></tr>
+                    <tr><td>Brand Kit</td><td>&#8377;5,000+</td></tr>
+                    <tr><td>Monthly Design Support</td><td>&#8377;8,000+</td></tr>
+                </tbody>
+            </table>
+            <div class="pricing-disclaimer">
+                Starting prices. Final quotes depend on project scope, complexity, timeline and deliverables.
+            </div>
+            <div style="margin-top: 24px;">
+                <a href="#contact" class="btn p" style="font-size: 11px; padding: 14px 24px;" onclick="document.getElementById('modal-design').classList.remove('open')">
+                    GET A QUOTE <span class="ar">&rarr;</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Excel & Data Pricing Modal -->
+    <div class="pricing-modal-overlay" id="modal-excel" role="dialog" aria-modal="true" aria-label="Excel and data pricing details">
+        <div class="pricing-modal">
+            <div class="pricing-modal-header">
+                <div>
+                    <p class="lbl">EXCEL &amp; DATA</p>
+                    <h3 style="margin-top: 6px; font-size: clamp(22px, 3vw, 36px);">Excel &amp; Data Pricing</h3>
+                </div>
+                <button class="pricing-modal-close" aria-label="Close pricing modal" data-close-modal="modal-excel">&times;</button>
+            </div>
+            <table class="pricing-table" aria-label="Excel and data service prices">
+                <tbody>
+                    <tr><td>Excel Formatting / Cleanup</td><td>&#8377;999+</td></tr>
+                    <tr><td>Data Cleaning</td><td>&#8377;1,499+</td></tr>
+                    <tr><td>Formula / Spreadsheet Fix</td><td>&#8377;999+</td></tr>
+                    <tr><td>Excel / Google Sheets Tracker</td><td>&#8377;2,499+</td></tr>
+                    <tr><td>Excel Dashboard</td><td>&#8377;2,999+</td></tr>
+                    <tr><td>Advanced Dashboard</td><td>&#8377;5,999+</td></tr>
+                    <tr><td>Data Cleaning + Dashboard</td><td>&#8377;4,999+</td></tr>
+                    <tr><td>Business Performance Report</td><td>&#8377;3,999+</td></tr>
+                    <tr><td>Inventory Management Sheet</td><td>&#8377;3,499+</td></tr>
+                    <tr><td>Sales / Customer Tracker</td><td>&#8377;2,999+</td></tr>
+                    <tr><td>Expense &amp; Profit Tracker</td><td>&#8377;2,999+</td></tr>
+                    <tr><td>Custom Excel Automation</td><td>&#8377;3,000+</td></tr>
+                </tbody>
+            </table>
+            <div class="pricing-disclaimer">
+                Starting prices. Final quotes depend on project scope, complexity, timeline and deliverables.
+            </div>
+            <div style="margin-top: 24px;">
+                <a href="#contact" class="btn p" style="font-size: 11px; padding: 14px 24px;" onclick="document.getElementById('modal-excel').classList.remove('open')">
+                    GET A QUOTE <span class="ar">&rarr;</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Pricing Modal -->
+    <div class="pricing-modal-overlay" id="modal-video" role="dialog" aria-modal="true" aria-label="Video pricing details">
+        <div class="pricing-modal">
+            <div class="pricing-modal-header">
+                <div>
+                    <p class="lbl">VIDEO</p>
+                    <h3 style="margin-top: 6px; font-size: clamp(22px, 3vw, 36px);">Video Pricing</h3>
+                </div>
+                <button class="pricing-modal-close" aria-label="Close pricing modal" data-close-modal="modal-video">&times;</button>
+            </div>
+            <table class="pricing-table" aria-label="Video service prices">
+                <tbody>
+                    <tr><td>Basic Reel / Short</td><td>&#8377;700+</td></tr>
+                    <tr><td>Reel with Captions + Effects</td><td>&#8377;1,000+</td></tr>
+                    <tr><td>Advanced Reel</td><td>&#8377;1,500+</td></tr>
+                    <tr><td>Motion Graphics Reel</td><td>&#8377;2,000+</td></tr>
+                    <tr><td>Event / Promo Video</td><td>&#8377;2,500+</td></tr>
+                    <tr><td>YouTube Short</td><td>&#8377;1,000+</td></tr>
+                    <tr><td>3&ndash;5 min Video</td><td>&#8377;3,000+</td></tr>
+                    <tr><td>5&ndash;10 min YouTube Video</td><td>&#8377;5,000+</td></tr>
+                    <tr><td>5-Reel Package</td><td>&#8377;4,500+</td></tr>
+                    <tr><td>10-Reel Package</td><td>&#8377;8,000+</td></tr>
+                    <tr><td>Monthly Video Support</td><td>&#8377;10,000+</td></tr>
+                </tbody>
+            </table>
+            <div class="pricing-disclaimer">
+                Starting prices. Final quotes depend on project scope, complexity, timeline and deliverables.
+            </div>
+            <div style="margin-top: 24px;">
+                <a href="#contact" class="btn p" style="font-size: 11px; padding: 14px 24px;" onclick="document.getElementById('modal-video').classList.remove('open')">
+                    GET A QUOTE <span class="ar">&rarr;</span>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <!-- Integrated Contact & Enquiry Section -->
     <section id="contact" style="padding-top: 60px;">
@@ -2839,6 +3363,62 @@ ${nameVal}`;
         mod.addEventListener('click', e => { if (e.target === mod) closeProjectModal(); });
         addEventListener('keydown', e => {
             if (e.key === 'Escape' && mod.classList.contains('on')) closeProjectModal();
+        });
+
+        // ===== PRICING MODALS =====
+        const PRICING_MODALS = ['modal-design', 'modal-excel', 'modal-video'];
+        const PRICING_TRIGGERS = {
+            'open-design-pricing': 'modal-design',
+            'open-excel-pricing':  'modal-excel',
+            'open-video-pricing':  'modal-video'
+        };
+
+        function openPricingModal(id) {
+            const overlay = document.getElementById(id);
+            if (!overlay) return;
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            const closeBtn = overlay.querySelector('.pricing-modal-close');
+            if (closeBtn) closeBtn.focus();
+        }
+
+        function closePricingModal(id) {
+            const overlay = document.getElementById(id);
+            if (!overlay) return;
+            overlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        Object.entries(PRICING_TRIGGERS).forEach(([btnId, modalId]) => {
+            const btn = document.getElementById(btnId);
+            if (btn) btn.addEventListener('click', () => openPricingModal(modalId));
+        });
+
+        document.querySelectorAll('.pricing-modal-close').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const id = btn.dataset.closeModal;
+                closePricingModal(id);
+            });
+        });
+
+        document.querySelectorAll('.pricing-modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', e => {
+                if (e.target === overlay) closePricingModal(overlay.id);
+            });
+        });
+
+        addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                PRICING_MODALS.forEach(id => closePricingModal(id));
+            }
+        });
+
+        // Package CTA cards — link to contact
+        document.querySelectorAll('.pkg-card').forEach(card => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', () => {
+                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            });
         });
 
     </script>
